@@ -18,6 +18,13 @@ Once the file has been used it's a waste of RAM to keep it in cache.
     use File::Open::ReadOnly::NoCache;
     my $fh = File::Open::ReadOnly::NoCache('/tmp/foo');
 
+## fd
+
+Returns the file descriptor of the file
+
+    my $fd = $fh->fd();
+    my $line = <$fd>;
+
 # AUTHOR
 
 Nigel Horne, `<njh at bandsman.co.uk>`

@@ -61,6 +61,21 @@ sub new {
 	return bless { fd => $fd }, $class
 }
 
+=head2	fd
+
+Returns the file descriptor of the file
+
+    my $fd = $fh->fd();
+    my $line = <$fd>;
+
+=cut
+
+sub fd {
+	my $self = shift;
+
+	return $self->{'fd'};
+}
+
 sub DESTROY {
 	if(defined($^V) && ($^V ge 'v5.14.0')) {
 		return if ${^GLOBAL_PHASE} eq 'DESTRUCT';	# >= 5.14.0 only
