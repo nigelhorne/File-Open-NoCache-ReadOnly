@@ -13,6 +13,8 @@ WriteMakefile(
 	  : ()),
 	PL_FILES	=> {},
 	TEST_REQUIRES => {
+		'autodie' => 0,
+		'IPC::System::Simple' => 0,
 		'Test::Exception' => 0.42,
 		'Test::Most' => 0,
 		'Test::NoWarnings' => 0,

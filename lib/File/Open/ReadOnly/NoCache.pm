@@ -28,16 +28,19 @@ our $VERSION = '0.02';
 
 =head1 SUBROUTINES/METHODS
 
-=head2 Open::ReadOnly::NoCache
+=head2 new
 
 Open a file and flush the cache afterwards.
+One use case is building a large database from smaller files that are
+only read in once.
+Once the file has been used it's a waste of RAM to keep it in cache.
 
     use File::Open::ReadOnly::NoCache;
     my $fh = File::Open::ReadOnly::NoCache('/tmp/foo');
 
 =cut
 
-sub File::Open::ReadOnly::NoCache {
+sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 
@@ -66,8 +69,7 @@ sub DESTROY {
 
 	my $fd = $self->{'fd'};
 	my @statb = stat($fd);
-	my $size = $statb[7];
-	IO::AIO::fadvise($fd, 0, $statb[7], IO::AIO::FADV_DONTNEED);
+	IO::AIO::fadvise($fd, 0, $statb[7] - 1, IO::AIO::FADV_DONTNEED);
 
 	close $self->{'fd'};
 }
