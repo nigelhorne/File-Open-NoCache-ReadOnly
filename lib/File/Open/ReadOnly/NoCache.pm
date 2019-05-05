@@ -68,8 +68,9 @@ sub DESTROY {
 	my $self = shift;
 
 	my $fd = $self->{'fd'};
-	my @statb = stat($fd);
-	IO::AIO::fadvise($fd, 0, $statb[7] - 1, IO::AIO::FADV_DONTNEED);
+	# my @statb = stat($fd);
+	# IO::AIO::fadvise($fd, 0, $statb[7] - 1, IO::AIO::FADV_DONTNEED);
+	IO::AIO::fadvise($fd, 0, 0, IO::AIO::FADV_DONTNEED);
 
 	close $self->{'fd'};
 }
