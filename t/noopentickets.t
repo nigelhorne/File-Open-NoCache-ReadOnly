@@ -12,7 +12,7 @@ NOBUGS: {
 			if($@) {
 				diag('WWW::RT::CPAN required to check for open tickets');
 				skip('WWW::RT::CPAN required to check for open tickets', 3);
-			} elsif(my @rc = @{WWW::RT::CPAN::list_dist_active_tickets(dist => 'File-Open-ReadOnly-NoCache')}) {
+			} elsif(my @rc = @{WWW::RT::CPAN::list_dist_active_tickets(dist => 'File-Open-NoCache::ReadOnly')}) {
 				ok($rc[0] == 200);
 				ok($rc[1] eq 'OK');
 				my @tickets = $rc[2] ? @{$rc[2]} : ();

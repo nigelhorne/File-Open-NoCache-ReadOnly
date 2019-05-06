@@ -1,5 +1,5 @@
 Changes
-lib/File/Open/ReadOnly/NoCache.pm
+lib/File/Open/NoCache/ReadOnly.pm
 LICENSE
 Makefile.PL
 MANIFEST			This list of files

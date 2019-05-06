@@ -3,10 +3,10 @@ use warnings;
 use ExtUtils::MakeMaker 6.64;	# 6.64 for TEST_REQUIRES
 
 WriteMakefile(
-	NAME		=> 'File::Open::ReadOnly::NoCache',
+	NAME		=> 'File::Open::NoCache::ReadOnly',
 	AUTHOR		=> q{Nigel Horne <njh@bandsman.co.uk>},
-	VERSION_FROM	=> 'lib/File/Open/ReadOnly/NoCache.pm',
-	ABSTRACT_FROM	   => 'lib/File/Open/ReadOnly/NoCache.pm',
+	VERSION_FROM	=> 'lib/File/Open/NoCache/ReadOnly.pm',
+	ABSTRACT_FROM	   => 'lib/File/Open/NoCache/ReadOnly.pm',
 	((defined($ExtUtils::MakeMaker::VERSION) &&
 	 ($ExtUtils::MakeMaker::VERSION >= 6.3002))
 	  ? ('LICENSE'=> 'GPL')
@@ -28,7 +28,7 @@ WriteMakefile(
 		'IO::AIO' => 0,
 	},
 	dist		=> { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-	clean		=> { FILES => 'File-Open-ReadOnly-NoCache-*' },
+	clean		=> { FILES => 'File-Open-NoCache-ReadOnly-*' },
 	# META_ADD => {
 		# provides => {}
 	# },
@@ -37,15 +37,15 @@ WriteMakefile(
 		resources => {
 			repository => {
 				type => 'git',
-				url => 'git://github.com/nigelhorne/File-Open-ReadOnly-NoCache.git',
-				web => 'https://github.com/nigelhorne/File-Open-ReadOnly-NoCache',
-				repository => 'https://github.com/nigelhorne/File-Open-ReadOnly-NoCache',
+				url => 'git://github.com/nigelhorne/File-Open-NoCache-ReadOnly.git',
+				web => 'https://github.com/nigelhorne/File-Open-NoCache-ReadOnly',
+				repository => 'https://github.com/nigelhorne/File-Open-NoCache-ReadOnly',
 			},
 			bugtracker => {
-				# web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=File-Open-ReadOnly-NoCache',
-				# mailto => 'bug-File-Open-ReadOnly-NoCache@rt.cpan.org'
-				web => 'https://github.com/nigelhorne/File-Open-ReadOnly-NoCache/issues',
-				url => 'https://github.com/nigelhorne/File-Open-ReadOnly-NoCache/issues',
+				# web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=File-Open-NoCache-ReadOnly',
+				# mailto => 'bug-File-Open-NoCache-ReadOnly@rt.cpan.org'
+				web => 'https://github.com/nigelhorne/File-Open-NoCache-ReadOnly/issues',
+				url => 'https://github.com/nigelhorne/File-Open-NoCache-ReadOnly/issues',
 			}
 		
 		},

@@ -16,7 +16,7 @@ if($@) {
 } else {
 	my $tps = Test::Pod::Snippets->new;
 
-	my @modules = qw/ File::Open::ReadOnly::NoCache /;
+	my @modules = qw/ File::Open::NoCache::ReadOnly /;
 
 	$tps->runtest( module => $_, testgroup => 1 ) for @modules;
 }

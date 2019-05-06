@@ -1,6 +1,6 @@
 # NAME
 
-File::Open::ReadOnly::NoCache - Open a file and clear the cache afterward
+File::Open::NoCache::ReadOnly - Open a file and clear the cache afterward
 
 # VERSION
 
@@ -15,8 +15,8 @@ One use case is building a large database from smaller files that are
 only read in once.
 Once the file has been used it's a waste of RAM to keep it in cache.
 
-    use File::Open::ReadOnly::NoCache;
-    my $fh = File::Open::ReadOnly::NoCache->new('/etc/passwd');
+    use File::Open::NoCache::ReadOnly;
+    my $fh = File::Open::NoCache::ReadOnly->new('/etc/passwd');
 
 ## fd
 
@@ -32,9 +32,9 @@ Nigel Horne, `<njh at bandsman.co.uk>`
 # BUGS
 
 Please report any bugs or feature requests to
-`bug-file-Open::ReadOnly::NoCache at rt.cpan.org`,
+`bug-file-Open-NoCache-ReadOnly at rt.cpan.org`,
 or through the web interface at
-[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=File-Open::ReadOnly::NoCache](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=File-Open::ReadOnly::NoCache).
+[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=File-Open-NoCache-ReadOnly](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=File-Open-NoCache-ReadOnly).
 I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
@@ -42,25 +42,25 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc File::Open::ReadOnly::NoCache
+    perldoc File::Open::NoCache::ReadOnly
 
 You can also look for information at:
 
 - RT: CPAN's request tracker
 
-    [http://rt.cpan.org/NoAuth/Bugs.html?Dist=File-Open::ReadOnly::NoCache](http://rt.cpan.org/NoAuth/Bugs.html?Dist=File-Open::ReadOnly::NoCache)
+    [http://rt.cpan.org/NoAuth/Bugs.html?Dist=File-Open-NoCache-ReadOnly](http://rt.cpan.org/NoAuth/Bugs.html?Dist=File-Open-NoCache-ReadOnly)
 
 - AnnoCPAN: Annotated CPAN documentation
 
-    [http://annocpan.org/dist/File-Open::ReadOnly::NoCache](http://annocpan.org/dist/File-Open::ReadOnly::NoCache)
+    [http://annocpan.org/dist/File-Open-NoCache-ReadOnly](http://annocpan.org/dist/File-Open-NoCache-ReadOnly)
 
 - CPAN Ratings
 
-    [http://cpanratings.perl.org/d/File-Open::ReadOnly::NoCache](http://cpanratings.perl.org/d/File-Open::ReadOnly::NoCache)
+    [http://cpanratings.perl.org/d/File-Open-NoCache-ReadOnly](http://cpanratings.perl.org/d/File-Open-NoCache-ReadOnly)
 
 - Search CPAN
 
-    [http://search.cpan.org/dist/File-Open::ReadOnly::NoCache/](http://search.cpan.org/dist/File-Open::ReadOnly::NoCache/)
+    [http://search.cpan.org/dist/File-Open-NoCache-ReadOnly/](http://search.cpan.org/dist/File-Open-NoCache-ReadOnly/)
 
 # LICENSE AND COPYRIGHT
 
