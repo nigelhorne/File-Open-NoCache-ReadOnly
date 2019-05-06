@@ -37,7 +37,7 @@ only read in once.
 Once the file has been used it's a waste of RAM to keep it in cache.
 
     use File::Open::ReadOnly::NoCache;
-    my $fh = File::Open::ReadOnly::NoCache('/tmp/foo');
+    my $fh = File::Open::ReadOnly::NoCache->new('/etc/passwd');
 
 =cut
 
@@ -57,10 +57,14 @@ sub new {
 	}
 
 	if(my $filename = $params{'filename'}) {
-		open(my $fd, '<', $filename);
-		return bless { fd => $fd }, $class
+		if(open(my $fd, '<', $filename)) {
+			return bless { fd => $fd }, $class
+		}
+		Carp::carp("$filename: $!");
+		return;
 	}
-	Carp::croak('Usage: ', __PACKAGE__, '->new(filename => $filename)');
+	Carp::carp('Usage: ', __PACKAGE__, '->new(filename => $filename)');
+	return;
 }
 
 =head2	fd
@@ -84,12 +88,15 @@ sub DESTROY {
 	}
 	my $self = shift;
 
-	my $fd = $self->{'fd'};
-	# my @statb = stat($fd);
-	# IO::AIO::fadvise($fd, 0, $statb[7] - 1, IO::AIO::FADV_DONTNEED);
-	IO::AIO::fadvise($fd, 0, 0, IO::AIO::FADV_DONTNEED);
+	if(my $fd = $self->{'fd'}) {
+		# my @statb = stat($fd);
+		# IO::AIO::fadvise($fd, 0, $statb[7] - 1, IO::AIO::FADV_DONTNEED);
+		IO::AIO::fadvise($fd, 0, 0, IO::AIO::FADV_DONTNEED);
 
-	close $self->{'fd'};
+		close $self->{'fd'};
+
+		delete $self->{'fd'};
+	}
 }
 
 =head1 AUTHOR

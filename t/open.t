@@ -5,7 +5,6 @@ use warnings;
 use autodie qw(:all);
 
 use Test::Most tests => 4;
-use Test::NoWarnings;
 
 BEGIN {
 	use_ok('File::Open::ReadOnly::NoCache');
@@ -17,4 +16,6 @@ OPEN: {
 	]);
 	my $fd = $fin->fd();
 	ok(<$fd> =~ /^package File::Open::ReadOnly::NoCache;/);
+
+	ok(!defined(File::Open::ReadOnly::NoCache->new('/asdasd.not.notthere')));
 }
