@@ -50,6 +50,8 @@ sub new {
 	my %params;
 	if(ref($_[0]) eq 'HASH') {
 		%params = %{$_[0]};
+	} elsif(ref($_[0]) || !defined($_[0])) {
+		Carp::croak('Usage: ', __PACKAGE__, '->new(%args)');
 	} elsif(scalar(@_) % 2 == 0) {
 		%params = @_;
 	} else {
