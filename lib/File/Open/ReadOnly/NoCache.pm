@@ -12,6 +12,7 @@ package File::Open::ReadOnly::NoCache;
 
 use strict;
 use warnings;
+use Carp;
 use IO::AIO;
 
 =head1 NAME
@@ -55,10 +56,11 @@ sub new {
 		$params{'filename'} = shift;
 	}
 
-	my $filename = $params{'filename'};
-
-	open(my $fd, '<', $filename);
-	return bless { fd => $fd }, $class
+	if(my $filename = $params{'filename'}) {
+		open(my $fd, '<', $filename);
+		return bless { fd => $fd }, $class
+	}
+	Carp::croak('Usage: ', __PACKAGE__, '->new(filename => $filename)');
 }
 
 =head2	fd
