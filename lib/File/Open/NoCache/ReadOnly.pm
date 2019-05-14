@@ -38,6 +38,7 @@ Once the file has been used it's a waste of RAM to keep it in cache.
 
     use File::Open::NoCache::ReadOnly;
     my $fh = File::Open::NoCache::ReadOnly->new('/etc/passwd');
+    my $fh2 = File::Open::NoCache::ReadOnly->new(filename => '/etc/group', fatal => 1);
 
 =cut
 
@@ -51,7 +52,7 @@ sub new {
 	if(ref($_[0]) eq 'HASH') {
 		%params = %{$_[0]};
 	} elsif(ref($_[0]) || !defined($_[0])) {
-		Carp::croak('Usage: ', __PACKAGE__, '->new(%args)');
+		Carp::carp('Usage: ', __PACKAGE__, '->new(%args)');
 	} elsif(scalar(@_) % 2 == 0) {
 		%params = @_;
 	} else {
@@ -61,6 +62,9 @@ sub new {
 	if(my $filename = $params{'filename'}) {
 		if(open(my $fd, '<', $filename)) {
 			return bless { fd => $fd }, $class
+		}
+		if($params{'fatal'}) {
+			Carp::croak("$filename: $!");
 		}
 		Carp::carp("$filename: $!");
 		return;

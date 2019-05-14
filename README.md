@@ -17,6 +17,7 @@ Once the file has been used it's a waste of RAM to keep it in cache.
 
     use File::Open::NoCache::ReadOnly;
     my $fh = File::Open::NoCache::ReadOnly->new('/etc/passwd');
+    my $fh2 = File::Open::NoCache::ReadOnly->new(filename => '/etc/group', fatal => 1);
 
 ## fd
 
