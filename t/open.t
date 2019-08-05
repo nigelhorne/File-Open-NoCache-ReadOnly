@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use autodie qw(:all);
 
-use Test::Most tests => 6;
+use Test::Most tests => 7;
 
 BEGIN {
 	use_ok('File::Open::NoCache::ReadOnly');
@@ -21,4 +21,7 @@ OPEN: {
 	ok(defined($fin = new_ok('File::Open::NoCache::ReadOnly' => [
 		filename => 'lib/File/Open/NoCache/ReadOnly.pm'
 	])));
+
+	diag('Ignore usage messages');
+	ok(!defined(File::Open::NoCache::ReadOnly->new()));
 }
