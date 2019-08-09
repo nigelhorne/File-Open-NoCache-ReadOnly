@@ -31,9 +31,10 @@ our $VERSION = '0.01';
 
 =head2 new
 
-Open a file and flush the cache afterwards.
+Open a file that will be read once sequentially and not again,
+optimising the cache accordingly.
 One use case is building a large database from smaller files that are
-only read in once.
+only read in once,
 Once the file has been used it's a waste of RAM to keep it in cache.
 
     use File::Open::NoCache::ReadOnly;
@@ -61,6 +62,7 @@ sub new {
 
 	if(my $filename = $params{'filename'}) {
 		if(open(my $fd, '<', $filename)) {
+			IO::AIO::fadvise($fd, 0, 0, IO::AIO::FADV_SEQUENTIAL|IO::AIO::FADV_NOREUSE|IO::AIO::FADV_DONTNEED);
 			return bless { fd => $fd }, $class
 		}
 		if($params{'fatal'}) {
