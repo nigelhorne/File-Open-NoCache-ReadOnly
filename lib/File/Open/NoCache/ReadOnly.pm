@@ -90,10 +90,15 @@ sub fd {
 	return $self->{'fd'};
 }
 
-sub DESTROY {
-	if(defined($^V) && ($^V ge 'v5.14.0')) {
-		return if ${^GLOBAL_PHASE} eq 'DESTRUCT';	# >= 5.14.0 only
-	}
+=head2	close
+
+Shouldn't be needed as close happens automatically when there variable goes out of scope.
+However Perl isn't as good at reaping as it'd have you believe, so this is here to force it when you
+know you're finished with the object.
+
+=cut
+
+sub close {
 	my $self = shift;
 
 	if(my $fd = $self->{'fd'}) {
@@ -104,6 +109,20 @@ sub DESTROY {
 		close $fd;
 
 		delete $self->{'fd'};
+	# } else {
+		# Seems to get false positives
+		# Carp::carp('Attempt to close object twice');
+	}
+}
+
+sub DESTROY {
+	if(defined($^V) && ($^V ge 'v5.14.0')) {
+		return if ${^GLOBAL_PHASE} eq 'DESTRUCT';	# >= 5.14.0 only
+	}
+	my $self = shift;
+
+	if(defined($self->{'fd'})) {
+		$self->close();
 	}
 }
 

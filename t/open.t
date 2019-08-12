@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use autodie qw(:all);
 
-use Test::Most tests => 8;
+use Test::Most tests => 7;
 
 BEGIN {
 	use_ok('File::Open::NoCache::ReadOnly');
@@ -20,14 +20,20 @@ OPEN: {
 	])) {
 		my $fd = $fin->fd();
 		ok(<$fd> =~ /^package File::Open::NoCache::ReadOnly;/);
+		$c = $calls;
+		$fin->close();
+		ok($calls == $c + 1);	# Check flush was called
+		$fin->close();
+		ok($calls == $c + 1);	# Close, nothing to flush
 
 		ok(!($fin = defined(File::Open::NoCache::ReadOnly->new('/asdasd.not.notthere'))));
 		ok(defined($fin = new_ok('File::Open::NoCache::ReadOnly' => [
 			filename => 'lib/File/Open/NoCache/ReadOnly.pm'
 		])));
-		$c = $calls;
+		# $c = $calls;
 	}
-	ok($calls == $c + 1);	# Check flush was called when $fin goes out of scope
+	# Doesn't always happen, which is why the close() method was added
+	# ok($calls == $c + 1);	# Check flush was called when $fin goes out of scope
 
 	diag('Ignore usage messages');
 
