@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use autodie qw(:all);
 
-use Test::Most tests => 7;
+use Test::Most tests => 9;
 
 BEGIN {
 	use_ok('File::Open::NoCache::ReadOnly');
