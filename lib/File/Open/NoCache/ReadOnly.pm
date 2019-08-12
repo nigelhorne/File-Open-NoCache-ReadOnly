@@ -21,11 +21,11 @@ File::Open::NoCache::ReadOnly - Open a file and clear the cache afterward
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SUBROUTINES/METHODS
 
@@ -152,10 +152,6 @@ You can also look for information at:
 =item * RT: CPAN's request tracker
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=File-Open-NoCache-ReadOnly>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/File-Open-NoCache-ReadOnly>
 
 =item * CPAN Ratings
 
