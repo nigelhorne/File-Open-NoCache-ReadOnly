@@ -63,7 +63,7 @@ sub new {
 	if(my $filename = $params{'filename'}) {
 		if(open(my $fd, '<', $filename)) {
 			IO::AIO::fadvise($fd, 0, 0, IO::AIO::FADV_SEQUENTIAL|IO::AIO::FADV_NOREUSE|IO::AIO::FADV_DONTNEED);
-			return bless { fd => $fd }, $class
+			return bless { fd => $fd }, $class;
 		}
 		if($params{'fatal'}) {
 			Carp::croak("$filename: $!");
@@ -165,7 +165,7 @@ L<http://search.cpan.org/dist/File-Open-NoCache-ReadOnly/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2019 Nigel Horne.
+Copyright 2019-2021 Nigel Horne.
 
 Usage is subject to licence terms.
 

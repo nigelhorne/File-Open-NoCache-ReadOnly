@@ -47,7 +47,6 @@ WriteMakefile(
 				web => 'https://github.com/nigelhorne/File-Open-NoCache-ReadOnly/issues',
 				url => 'https://github.com/nigelhorne/File-Open-NoCache-ReadOnly/issues',
 			}
-		
 		},
 	},
 	MIN_PERL_VERSION	=> '5.6.2'	# Probably would work, but never tested on earlier versions than this
