@@ -35,7 +35,7 @@ Open a file that will be read once sequentially and not again,
 optimising the cache accordingly.
 One use case is building a large database from smaller files that are
 only read in once,
-Once the file has been used it's a waste of RAM to keep it in cache.
+once the file has been used it's a waste of RAM to keep it in cache.
 
     use File::Open::NoCache::ReadOnly;
     my $fh = File::Open::NoCache::ReadOnly->new('/etc/passwd');
@@ -69,10 +69,10 @@ sub new {
 			Carp::croak("$filename: $!");
 		}
 		Carp::carp("$filename: $!");
-		return;
+	} else {
+		Carp::carp('Usage: ', __PACKAGE__, '->new(filename => $filename)');
 	}
-	Carp::carp('Usage: ', __PACKAGE__, '->new(filename => $filename)');
-	return;
+	return;	# return undef
 }
 
 =head2	fd
@@ -92,7 +92,7 @@ sub fd {
 
 =head2	close
 
-Shouldn't be needed as close happens automatically when there variable goes out of scope.
+Shouldn't be needed as close happens automatically when the variable goes out of scope.
 However Perl isn't as good at reaping as it'd have you believe, so this is here to force it when you
 know you're finished with the object.
 
@@ -101,17 +101,14 @@ know you're finished with the object.
 sub close {
 	my $self = shift;
 
-	if(my $fd = $self->{'fd'}) {
+	if(my $fd = delete $self->{'fd'}) {
 		# my @statb = stat($fd);
 		# IO::AIO::fadvise($fd, 0, $statb[7] - 1, IO::AIO::FADV_DONTNEED);
 		IO::AIO::fadvise($fd, 0, 0, IO::AIO::FADV_DONTNEED);
 
 		close $fd;
-
-		delete $self->{'fd'};
-	# } else {
-		# Seems to get false positives
-		# Carp::carp('Attempt to close object twice');
+	} else {
+		Carp::carp('Attempt to close object twice');
 	}
 }
 
