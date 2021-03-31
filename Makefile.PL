@@ -19,6 +19,7 @@ WriteMakefile(
 		'Test::Most' => 0,
 		'Test::NoWarnings' => 0,
 		'Test::Script' => 1.12,
+		'Test::Carp' => 0,
 		'Test::CleanNamespaces' => 0,
 		# 'Test::Kwalitee' => 0,
 		'Test::Warn' => 0,

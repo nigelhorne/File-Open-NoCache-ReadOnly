@@ -26,7 +26,7 @@ OPEN: {
 		$fin->close();
 		ok($calls == $c + 1);	# Close, nothing to flush
 
-		ok(!($fin = defined(File::Open::NoCache::ReadOnly->new('/asdasd.not.notthere'))));
+		ok(!($fin = defined(File::Open::NoCache::ReadOnly->new('/asdasd.not.there'))));
 		ok(defined($fin = new_ok('File::Open::NoCache::ReadOnly' => [
 			filename => 'lib/File/Open/NoCache/ReadOnly.pm'
 		])));
