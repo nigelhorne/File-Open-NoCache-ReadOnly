@@ -2,6 +2,8 @@ use strict;
 use warnings;
 use ExtUtils::MakeMaker 6.64;	# 6.64 for TEST_REQUIRES
 
+# yum install libaio-devel
+
 WriteMakefile(
 	NAME		=> 'File::Open::NoCache::ReadOnly',
 	AUTHOR		=> q{Nigel Horne <njh@bandsman.co.uk>},
