@@ -150,10 +150,6 @@ You can also look for information at:
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=File-Open-NoCache-ReadOnly>
 
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/File-Open-NoCache-ReadOnly>
-
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/File-Open-NoCache-ReadOnly/>
@@ -162,7 +158,7 @@ L<http://search.cpan.org/dist/File-Open-NoCache-ReadOnly/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2019-2021 Nigel Horne.
+Copyright 2019-2023 Nigel Horne.
 
 Usage is subject to licence terms.
 
