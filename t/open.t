@@ -28,7 +28,7 @@ OPEN: {
 
 		ok(!($fin = defined(File::Open::NoCache::ReadOnly->new('/asdasd.not.there'))));
 		ok(defined($fin = new_ok('File::Open::NoCache::ReadOnly' => [
-			filename => 'lib/File/Open/NoCache/ReadOnly.pm'
+			{ filename => 'lib/File/Open/NoCache/ReadOnly.pm' }
 		])));
 		# $c = $calls;
 	}
