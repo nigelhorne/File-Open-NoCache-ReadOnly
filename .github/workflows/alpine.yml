@@ -33,12 +33,11 @@ jobs:
           cd $RUNNER_WORKSPACE
           git clone --recurse-submodules $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
           cd $GITHUB_WORKSPACE
-          cpanm -iqn ExtUtils::MakeMaker Test::Carp
-          cpanm -ivn --skip-satisfied IO::AIO
+          cpanm -iqn ExtUtils::MakeMaker Test::Carp IO::AIO
           cpanm -iqn --installdeps .
       - name: Make module
         run: |
-          find ~ ~/.cpanm -name build.log | xargs cat
+          # find ~ ~/.cpanm -name build.log | xargs cat
           cd $GITHUB_WORKSPACE
           perl Makefile.PL
           make
