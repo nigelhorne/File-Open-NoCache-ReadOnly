@@ -24,7 +24,8 @@ jobs:
           apk update
           apk upgrade
           apk add perl perl-app-cpanminus make gzip git
-          apk add perl-test-most perl-test-nowarnings
+          apk add perl-test-most perl-test-nowarnings perl-ipc-system-simple
+          apk add perl-test-script
           perl -V
           # cpanm -iqn ExtUtils::MakeMaker File::Spec Test::Most
           # cpanm -iqn Sub::Identify Log::Any
@@ -32,7 +33,7 @@ jobs:
           cd $RUNNER_WORKSPACE
           git clone --recurse-submodules $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
           cd $GITHUB_WORKSPACE
-          cpanm -iqn ExtUtils::MakeMaker IO::AIO
+          cpanm -iqn ExtUtils::MakeMaker Test::Carp IO::AIO
           cpanm -iqn --installdeps .
       - name: Make module
         run: |

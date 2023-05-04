@@ -25,8 +25,7 @@ WriteMakefile(
 		# 'Test::CleanNamespaces' => 0,
 		# 'Test::Kwalitee' => 0,
 		'Test::Warn' => 0,
-	},
-	PREREQ_PM => {
+	}, PREREQ_PM => {
 		'Carp' => 0,
 		'IO::AIO' => 0,
 	},
