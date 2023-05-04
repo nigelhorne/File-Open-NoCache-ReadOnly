@@ -34,7 +34,7 @@ jobs:
           git clone --recurse-submodules $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
           cd $GITHUB_WORKSPACE
           cpanm -iqn ExtUtils::MakeMaker Test::Carp
-          cpanm -iq IO::AIO
+          cpanm -in IO::AIO
           cpanm -iqn --installdeps .
       - name: Make module
         run: |
