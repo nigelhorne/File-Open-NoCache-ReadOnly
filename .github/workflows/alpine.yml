@@ -32,7 +32,7 @@ jobs:
           cd $RUNNER_WORKSPACE
           git clone --recurse-submodules $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
           cd $GITHUB_WORKSPACE
-          cpanm -iqn ExtUtils::MakeMaker
+          cpanm -iqn ExtUtils::MakeMaker IO::AIO
           cpanm -iqn --installdeps .
       - name: Make module
         run: |
