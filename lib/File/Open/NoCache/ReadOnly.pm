@@ -17,7 +17,7 @@ use IO::AIO;
 
 =head1 NAME
 
-File::Open::NoCache::ReadOnly - Open a file and clear the cache afterward
+File::Open::NoCache::ReadOnly - Open a file and flush from memory on closing
 
 =head1 VERSION
 
