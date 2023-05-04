@@ -3,6 +3,7 @@ use warnings;
 use ExtUtils::MakeMaker 6.64;	# 6.64 for TEST_REQUIRES
 
 # yum install libaio-devel
+# apk install libaio-dev
 
 WriteMakefile(
 	NAME		=> 'File::Open::NoCache::ReadOnly',
