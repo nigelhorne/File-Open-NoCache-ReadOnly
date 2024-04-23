@@ -20,6 +20,7 @@ WriteMakefile(
 		'IPC::System::Simple' => 0,
 		'Test::Exception' => 0.42,
 		'Test::Most' => 0,
+		'Test::Needs' => 0,
 		'Test::NoWarnings' => 0,
 		'Test::Script' => 1.12,
 		'Test::Carp' => 0,
