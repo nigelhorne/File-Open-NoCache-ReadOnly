@@ -1,7 +1,6 @@
 package File::Open::NoCache::ReadOnly;
 
 # Author Nigel Horne: njh@bandsman.co.uk
-# Copyright (C) 2019 Nigel Horne
 
 # Usage is subject to licence terms.
 # The licence terms of this software are as follows:
@@ -21,11 +20,11 @@ File::Open::NoCache::ReadOnly - Open a file and flush from memory on closing
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SUBROUTINES/METHODS
 
@@ -158,7 +157,7 @@ L<http://search.cpan.org/dist/File-Open-NoCache-ReadOnly/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2019-2023 Nigel Horne.
+Copyright 2019-2024 Nigel Horne.
 
 Usage is subject to licence terms.
 
