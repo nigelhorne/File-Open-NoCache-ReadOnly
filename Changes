@@ -1,5 +1,8 @@
 Revision history for File-Open-NoCache-ReadOnly
 
+0.04
+	Use Test::DescribeMe to simplify tests
+
 0.03	Tue Jul 23 10:56:57 EDT 2024
 	Close now warns about attempting to close twice
 	Use Test::Needs
