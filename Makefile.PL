@@ -27,6 +27,7 @@ WriteMakefile(
 	TEST_REQUIRES => {
 		'autodie' => 0,
 		'IPC::System::Simple' => 0,
+		'Test::DescribeMe' => 0,
 		'Test::Exception' => 0.42,
 		'Test::Most' => 0,
 		'Test::Needs' => 0,
@@ -35,7 +36,7 @@ WriteMakefile(
 		'Test::Carp' => 0,
 		# 'Test::CleanNamespaces' => 0,
 		# 'Test::Kwalitee' => 0,
-		'Test::Warn' => 0,
+		'Test::Warn' => 0
 	}, PREREQ_PM => {
 		'Carp' => 0,
 		'IO::AIO' => 0,
