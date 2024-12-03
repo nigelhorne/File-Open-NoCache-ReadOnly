@@ -131,7 +131,7 @@ sub DESTROY {
 	}
 	my $self = shift;
 
-	if(defined($self->{'fd'})) {
+	if(my $fd = delete $self->{'fd'}) {
 		$self->close();
 	}
 }

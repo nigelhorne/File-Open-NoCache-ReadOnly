@@ -21,6 +21,7 @@ t/kwalitee.t
 t/links.t
 t/manifest.t
 t/metrics.t
+t/modules-used.t
 t/no404s.t
 t/noopentickets.t
 t/noplan.t
@@ -34,5 +35,4 @@ t/snippets.t
 t/spelling.t
 t/strict.t
 t/unused.t
-t/used.t
 t/vars.t
