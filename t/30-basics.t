@@ -6,7 +6,6 @@ use autodie qw(:all);
 
 use File::Temp;
 use Test::Most tests => 7;
-use File::Open::NoCache::ReadOnly;
 
 # Check if the module loads
 use_ok('File::Open::NoCache::ReadOnly');
