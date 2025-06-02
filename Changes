@@ -1,6 +1,6 @@
 Revision history for File-Open-NoCache-ReadOnly
 
-0.06
+0.06	Mon Jun  2 19:56:57 EDT 2025
 	Added readline
 	Use Params::Get
 
