@@ -17,14 +17,12 @@ perl:
 
 sudo: false
 
-before_install:
-  cpanm -n Devel::Cover::Report::Coveralls Test::Script Test::Pod::Spelling::CommonMistakes Test::Portability::Files Test::Taint Test::Carp IO::AIO
+before_install: cpanm -n Devel::Cover::Report::Coveralls Test::Script Test::Pod::Spelling::CommonMistakes Test::Portability::Files Test::Taint Test::Carp IO::AIO
 
 install:
   - cpanm -v --installdeps --notest .
 
-script:
-  perl Makefile.PL && make && cover -test -report coveralls
+script: perl Makefile.PL && make && cover -test -report coveralls
 
 jobs:
   include:
